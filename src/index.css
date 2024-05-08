@@ -155,10 +155,6 @@ select:focus {
   outline: none;
   border: 1px solid var(--color-dark);
 }
-/* .input-container {
-  display: flex;
-  flex-direction: column;
-} */
 
 form .button {
   margin-top: 0.6rem;
