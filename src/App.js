@@ -1,25 +1,5 @@
 import { useState } from "react";
 
-// const friendship = [
-//   {
-//     id: 118836,
-//     name: "vicky",
-//     image: "https://i.pravatar.cc/48?u=118836",
-//     balance: -7
-//   },
-//   {
-//     id: 933372,
-//     name: "Nicole",
-//     image: "https://i.pravatar.cc/48?u=933372",
-//     balance: 20
-//   },
-//   {
-//     id: 499476,
-//     name: "Martial",
-//     image: "https://i.pravatar.cc/48?u=499476",
-//     balance: 0
-//   },
-// ]
 
 export default function App() {
   const [form, setForm] = useState(false);
@@ -37,7 +17,6 @@ export default function App() {
   }
 
   function handleSelectFriend(frnd) {
-    // setSelFriend(frnd);
     setSelFriend(currentFriend => currentFriend?.id === frnd.id ? null : frnd);
     setForm(false)
   }
@@ -58,7 +37,12 @@ export default function App() {
         {form && <AddFriend onFriendInput={handleFriendInput}></AddFriend>}
         <Button customOnClick={handleAddFriend}> {form ? "Close" : "Add Friend"} </Button>
       </div>
-      {selFriend && <SplitBill selFriend={selFriend} onUpdateFriend={handleUpdateFriend}></SplitBill>}
+      {selFriend && 
+        <SplitBill 
+          key={selFriend.id}
+          selFriend={selFriend} 
+          onUpdateFriend={handleUpdateFriend}>
+        </SplitBill>}
     </div>
     
   )
